@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.github.app.model.medico.DadosCadastroMedico;
 
-@RestController //anotação do spring que indica
+@RestController //anotação do spring que indica 123
 //  que essa classe é um controlador de requisições REST, 
 // ou seja, ela vai receber requisições HTTP e retornar respostas HTTP
 @RequestMapping("medicos")// anotação do spring que indica o caminho (endpoint) base para as 
