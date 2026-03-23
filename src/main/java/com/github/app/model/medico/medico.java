@@ -6,8 +6,7 @@ import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -22,7 +21,7 @@ import lombok.Setter;
 @Entity// anotação do spring que indica que essa classe é uma entidade, ou seja, ela vai ser mapeada para uma tabela no banco de dados
 @Table(name = "medicos")// anotação do spring que indica o nome da tabela no banco de dados, nesse caso, medicos   
 //SRING JPA *oPCIONAL, GERA UMA TABELA COM O NOME MÉDICOS NO bd 
-public class medico {
+public class Medico {
     @Id // anotação do spring que indica que esse atributo é a chave primária da tabela no banco de dados
     @GeneratedValue(strategy = GenerationType.IDENTITY)// anotação do spring que indica que o valor desse atributo 
     // vai ser gerado automaticamente pelo banco de dados, usando a estratégia de identidade (auto-incremento)  
@@ -30,8 +29,17 @@ public class medico {
     private String nome;
     private String email;                       
     private String crm;
-   @Enumerated(EnumType.STRING) // anotação do spring que indica que esse atributo é um enum e deve ser armazenado como string no banco de dados 
-   //SPING JPA  Informa para o db que o tributo é do tipo enum    
-    private Especialidade especialidade;    
-    
+  private Especialidade especialidade; 
+  
+  @enbedded //utiliza a classe pai, associs uma entidade a uma tabela auxiliar
+
+  private Endereco endereco;
+  
+  //Construtor que recebe um objeto do tipo DadosCadastroMedico e inicializa os atributos do médico com os valores desse objeto
+  public Medico(DadosCadastroMedico dados) {
+    this.nome = dados.nome();
+    this.email = dados.email();
+    this.crm = dados.crm();
+    this.especialidade = dados.especialidade();
+  }
 }

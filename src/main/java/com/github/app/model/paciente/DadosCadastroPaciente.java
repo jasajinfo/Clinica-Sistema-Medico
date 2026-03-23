@@ -5,11 +5,10 @@ import com.github.app.model.medico.Especialidade;
 
 public record DadosCadastroPaciente(
 
-String nome,
+    String nome,
     String email, 
     String CPF, 
-    Especialidade especialidade, 
-    DadosCadastroEndereco endereco
+    String telefone
 
 )   
 
