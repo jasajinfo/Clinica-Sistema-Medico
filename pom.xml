@@ -5,14 +5,14 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>4.0.3</version>
+		<version>4.0.5</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.github</groupId>
 	<artifactId>app</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>app</name>
-	<description>project project for Spring Boot</description>
+	<description>project for Spring Boot</description>
 	<url/>
 	<licenses>
 		<license/>
@@ -30,6 +30,12 @@
 		<java.version>17</java.version>
 	</properties>
 	<dependencies>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-actuator</artifactId>
+		</dependency>
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter</artifactId>
@@ -41,45 +47,57 @@
 			<scope>runtime</scope>
 			<optional>true</optional>
 		</dependency>
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-		<dependency>
-      		<groupId>org.springframework.boot</groupId>
-     		<artifactId>spring-boot-starter-webmvc</artifactId>
-    	</dependency>
-<!-- Responsável pela criação visual do H2-->
 
-		<dependency>
+	  <dependency>
+      	   <groupId>org.springframework.boot</groupId>
+      	   <artifactId>spring-boot-starter-webmvc</artifactId>
+      </dependency>
+
+	<!-- Responsável pela criação do visual do H2 -->
+	<dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-h2console</artifactId>
     </dependency>
-<!-- Responsável elas persstências no Banco de Dados, utilizando JPA-->
+
+	<!-- Responsável pelas persistências no BD, utilizando as anotations da JPA -->
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-data-jpa</artifactId>
- </dependency>
-<!-- Responsável PELA CRIAÇÃO E UTILIZAÇÃO Ds anotations do H2A-->
+ 	</dependency>
+
+	<!-- Responsável pela criação e utilização das anotations do H2 -->
     <dependency>
       <groupId>com.h2database</groupId>
       <artifactId>h2</artifactId>
       <scope>runtime</scope>
     </dependency>
-<!-- Responsável por criar as anotations de resumo ... getters, setters...-->
+
+	<!-- Responsável por criar as anotations de resumo. Getters, setters... -->
     <dependency>
       <groupId>org.projectlombok</groupId>
       <artifactId>lombok</artifactId>
       <optional>true</optional>
     </dependency>
-<!-- Responsável pelos testes das persistências-->
+
+	<!-- Responsável pelos teste das persistências JPA -->
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-data-jpa-test</artifactId>
       <scope>test</scope>
     </dependency>
-		
+
+	<!-- Responsável pelas validações das informações que estão chegando pelo frontend/simulador de requisição -->
+	<dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-validation</artifactId>
+    </dependency>
+
 	</dependencies>
 
 	<build>
