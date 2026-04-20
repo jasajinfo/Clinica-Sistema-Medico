@@ -2,7 +2,6 @@ package com.github.app.model.endereco;
 import jakarta.persistence.Embeddable;
 import lombok.*;
 import com.github.app.model.endereco.DadosCadastroEndereco;
-
 @Getter
 @Setter
 @AllArgsConstructor
